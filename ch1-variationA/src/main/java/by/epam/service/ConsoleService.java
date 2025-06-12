@@ -16,7 +16,7 @@ public class ConsoleService {
                 num = scanner.nextInt();
                 break;
             } else if (scanner.hasNextLine()) {
-                System.err.println("Введите цифру");
+                System.out.println("Введите цифру");
                 scanner.nextLine();
             } else {
                 scanner.nextLine();
