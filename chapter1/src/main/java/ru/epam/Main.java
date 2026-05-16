@@ -21,7 +21,7 @@ public class Main {
 
     private String menu() {
         System.out.println("""
-                Введите действие:
+                \nВведите действие:
                 1 - упражнения варианта А.
                 2 - упражнения варианта B.
                 0 - выход из программы.
@@ -42,6 +42,7 @@ public class Main {
                 break;
             default:
                 System.out.println("Выбирите действие из списка");
+                break;
         }
     }
 }

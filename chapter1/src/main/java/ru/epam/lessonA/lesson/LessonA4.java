@@ -4,6 +4,9 @@ import static ru.epam.console.ReadConsole.getString;
 
 public class LessonA4 extends LessonA{
 
+    /*
+    4 Ввести пароль из командной строки и сравнить его со строкой-образцом.
+     */
     @Override
     public void game() {
         String password = "135";

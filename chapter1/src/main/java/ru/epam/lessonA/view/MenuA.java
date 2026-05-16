@@ -21,8 +21,13 @@ public class MenuA {
 
     private String menu() {
         System.out.println("""
-                Введите действие:
+                \nВведите действие:
                 1 - упражнение1
+                2 - упражнение2
+                3 - упражнение3
+                4 - упражнение4
+                5 - упражнение5
+                6 - упражнение6
                 0 - выход из меню А
                 """);
         return getString();
@@ -49,10 +54,11 @@ public class MenuA {
                 controllerA.lessonA6();
                 break;
             case "0":
-                System.out.println("выход из меню А%n");
+                System.out.println("выход из меню А");
                 break;
             default:
-                System.out.println("Выбирите действие из списка%n");
+                System.out.println("Выбирите действие из списка");
+                break;
         }
     }
 }

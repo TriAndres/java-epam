@@ -9,13 +9,12 @@ public abstract class LessonB {
 
     public abstract void game();
 
-    public int[] arr() {
+    public int[] arr(int from, int to) {
         System.out.println("Введите количество цифр в массиве:");
         int count = getInteger();
-        int to = 100;
         array = new int[count];
         for (int i = 0; i < array.length; i++) {
-            array[i] = new Random().nextInt(to);
+            array[i] = from + new Random().nextInt(to - from);
         }
         return array;
     }
@@ -24,8 +23,8 @@ public abstract class LessonB {
         int count = 0;
         int to = 10;
         for (int i : a) {
-            System.out.print(i + " ");
-            ++count;
+            count++;
+            System.out.printf("%d\t", i);
             if (count == to) {
                 System.out.println();
                 count = 0;

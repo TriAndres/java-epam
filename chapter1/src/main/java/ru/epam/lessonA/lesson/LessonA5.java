@@ -9,6 +9,10 @@ public class LessonA5 extends LessonA{
         scanner = new Scanner(System.in);
     }
 
+    /*
+    5 Ввести целые числа как аргументы командной строки, подсчитать их суммы и
+    произведения. Вывести результат на консоль.
+     */
     @Override
     public void game() {
         int num = 0;

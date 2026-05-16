@@ -6,6 +6,10 @@ import static ru.epam.console.ReadConsole.getInteger;
 
 public class LessonA3 extends LessonA{
 
+    /*
+    3 Вывести заданное количество случайных чисел с переходом и без перехода
+     на новую строку.
+     */
     @Override
     public void game() {
         System.out.println("Введите количество цифр:");
