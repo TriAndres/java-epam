@@ -1,6 +1,7 @@
 package ru.epam;
 
 import ru.epam.lessonA.wiew.AMenu;
+import ru.epam.lessonB.wiew.BMenu;
 
 import static ru.epam.console.ReadConsole.getString;
 import static ru.epam.user.controller.UserController.getDefaultUser;
@@ -36,6 +37,7 @@ public class Main {
                 new AMenu().game();
                 break;
             case "2":
+                new BMenu().game();
                 break;
             case "3":
                 break;

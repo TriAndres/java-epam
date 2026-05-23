@@ -29,7 +29,9 @@ public class ALesson1 extends ALesson {
             System.out.println("\nЦифры одинаковой длины.");
         }
 
-        getDefaultUser().infoUser();
+        if (!getDefaultUser().isUser()) {
+            getDefaultUser().infoUser();
+        }
     }
 
     public static void main(String[] args) {

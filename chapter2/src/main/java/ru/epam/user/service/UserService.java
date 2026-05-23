@@ -46,6 +46,10 @@ public class UserService {
         System.out.println("\n" + name);
     }
 
+    public boolean isUser() {
+        return userRepository.findAllUser().isEmpty();
+    }
+
     private long getNextId() {
         assert userRepository != null;
         long currentMaxId = userRepository.findAllUser()
