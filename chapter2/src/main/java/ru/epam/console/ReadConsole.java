@@ -21,4 +21,17 @@ public class ReadConsole {
         }
         return a;
     }
+
+    public static double getDouble() {
+        double a;
+        while (true) {
+            if (scanner.hasNextDouble())  {
+                a = scanner.nextDouble();
+                break;
+            } else {
+                scanner.nextLine();
+            }
+        }
+        return a;
+    }
 }

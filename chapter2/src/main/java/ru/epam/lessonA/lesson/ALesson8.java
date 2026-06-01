@@ -4,6 +4,8 @@ package ru.epam.lessonA.lesson;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static ru.epam.user.controller.UserController.getDefaultUser;
+
 public class ALesson8 extends ALesson {
     @Override
     public void game() {
@@ -22,10 +24,16 @@ public class ALesson8 extends ALesson {
                 arrayList.add(i);
             }
         }
-        if (!arrayList.isEmpty()) {
-            System.out.println(arrayList.getLast());
+
+        if (arrayList.size() > 1) {
+            System.out.printf("%d\t", arrayList.get(arrayList.size() - 1));
+        } else {
+            System.out.println("Второго числа нет.");
         }
 
+        if (!getDefaultUser().isUser()) {
+            getDefaultUser().infoUser();
+        }
     }
 
     public static void main(String[] args) {

@@ -2,6 +2,8 @@ package ru.epam.lessonA.lesson;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 
 import static ru.epam.user.controller.UserController.getDefaultUser;
 
@@ -10,85 +12,50 @@ public class ALesson4 extends ALesson {
     public void game() {
         System.out.println("4 Найти число, в котором число различных цифр минимально. Если таких чисел несколько, " +
                 "найти первое из них.");
-        array = arr(100, 999);
+        array = arr(1000, 9999);
         System.out.println("\nВведите количиство цифр в массиве:");
         show(array);
 
-        ArrayList<Num> arrayList = new ArrayList<>();
-
-        for (int j : array) {
-            int count1 = 0;
-            int count2 = 0;
-            String num = null;
-            String[] a = String.valueOf(j).split("");
-            for (int i = 0; i < a.length; i++) {
-                for (int k = i; k < a.length; k++) {
-                    if (a[i].equals(a[k])) {
-                        ++count1;
-                        num = a[k];
-                    }
-                }
-                if (a[i].equals(num)) {
-                    ++count2;
-                }
-                if (count1 == count2) {
-                    break;
-                }
-                count1 = 0;
-                num = null;
-            }
-            if (count2 - 1 > 0) {
-                arrayList.add(new Num(j, count2 - 1));
-                count2 = 0;
-            }
+        HashSet<Num> arr = new HashSet<>();
+        Arrays.sort(array);
+        for (int a : array) {
+            String[] s = String.valueOf(a).split("");
+            HashSet<String> kk = new HashSet<>(Arrays.asList(s));
+            arr.add(new Num(a, kk));
         }
 
-        if (!arrayList.isEmpty()) {
-            System.out.println("\n\nсортировка массива:");
-            arrayList.sort((a, b) -> a.getNum() - b.getNum());
-            arrayList.sort((a, b) -> b.getLength() - a.getLength());
-            int count = 0;
-            int to = 10;
-            for (int i = 0; i < arrayList.size(); i++) {
-                System.out.print(arrayList.get(i).num + "-" + arrayList.get(i).getLength() + "\t");
-                ++count;
-                if (count == to) {
-                    System.out.println();
-                    count = 0;
-                }
-            }
+        System.out.println("\nВывод:");
+        ArrayList<Num> list = new ArrayList<>(arr);
+        list.sort((a, b) -> a.getArr().size() - b.getArr().size());
 
-            int firstNum = arrayList.getLast().num;
-            int firstNumLength = arrayList.getLast().getLength();
-            System.out.println("\n\bчисло с различными цифрами минимально: " + firstNum + "-" + firstNumLength);
-        } else {
-            System.out.println("\nНет числа по условию.");
-        }
+        System.out.print(list.getFirst().num + "=" + list.getFirst().getArr().size() + "\t");
+
 
         if (!getDefaultUser().isUser()) {
             getDefaultUser().infoUser();
         }
     }
 
+
+    public static void main(String[] args) {
+        new ALesson4().game();
+    }
+
     static class Num {
         private final int num;
-        private final int length;
+        private final HashSet<String> arr;
 
-        public Num(int num, int length) {
+        public Num(int num, HashSet<String> arr) {
             this.num = num;
-            this.length = length;
+            this.arr = arr;
         }
 
         public int getNum() {
             return num;
         }
 
-        public int getLength() {
-            return length;
+        public HashSet<String> getArr() {
+            return arr;
         }
-    }
-
-    public static void main(String[] args) {
-        new ALesson4().game();
     }
 }
