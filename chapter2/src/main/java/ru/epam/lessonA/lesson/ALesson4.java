@@ -17,8 +17,8 @@ public class ALesson4 extends ALesson {
         show(array);
 
         HashSet<Num> arr = new HashSet<>();
-        Arrays.sort(array);
-        for (int a : array) {
+        Arrays.sort(this.array);
+        for (int a : this.array) {
             String[] s = String.valueOf(a).split("");
             HashSet<String> kk = new HashSet<>(Arrays.asList(s));
             arr.add(new Num(a, kk));
